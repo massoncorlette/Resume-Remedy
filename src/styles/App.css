@@ -1,0 +1,72 @@
+
+/* component styles here */
+
+
+#root {
+  height: 130vh;
+  width: 100%;
+  display: flex;
+}
+
+body {
+  height: 130vh;
+}
+
+#editorContainer {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(10,10%);
+  grid-template-rows: repeat(10,10%);
+}
+
+#logoContainer {
+  grid-column: 2/4;
+  grid-row: 1/2;
+  font-size: 24px;
+}
+
+#editorSettingsContainer {
+  grid-column: 2/10;
+  grid-row: 3/8;
+}
+
+
+#resumeContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#controlsContainer {
+  width: 100%;
+  height: 5%;
+}
+
+#resumePreviewContainer {
+  width: 595px; 
+  height: 842px;
+}
+
+/* minimize */
+@media (max-width: 1300px) {
+  #resumePreviewContainer {
+    width: 100%;
+  };
+}
+
+/* tablet mobile */
+@media (max-width: 1000px) {
+  #root {
+    flex-direction: column;
+    height: 260vh;
+  }
+
+  #body {
+    height: 260vh;
+  }
+}
+
+
+
