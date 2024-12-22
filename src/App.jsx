@@ -10,10 +10,13 @@ function App() {
     <>
       <div id="editorContainer">
         <div id="logoContainer">
-          <p> Resumely </p>
+          <p id="title"> Resume Remedy </p>
         </div>
-        <div id="editorSettingsContainer">
-          
+        <div id="userInfoContainer">
+
+        </div>
+        <div id="userHistoryContainer">
+
         </div>
       </div>
       <div id="resumeContainer">

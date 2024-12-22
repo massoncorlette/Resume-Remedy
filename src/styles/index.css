@@ -6,14 +6,5 @@ body {
   height: 100vh;
   margin: 0%;
   display: flex;
-}
-
-
-#editorContaner {
-  flex: 1;
-}
-
-
-#resumeContainer {
-  flex: 1;
+  font-family:  "Merriweather", serif;;
 }
