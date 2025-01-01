@@ -2,6 +2,8 @@ import { useState } from 'react'
 
 
 export function UserInfo() {
+
+
   return (
     <div id="userInfoContainer">
       <div id="firstName" className="infoInput">
@@ -25,7 +27,10 @@ export function UserInfo() {
 }
 
 
-export function ResumePreview({ userData }) {
+export function ResumePreview() {
+
+  const [userData, setUser] = useState({firstName: "Masson", lastName: "Corlette", phoneNumber: "69", email: "asdfasdf" })
+
   return (
     <div id="resumePreviewContainer">
       <h2>Resume Preview</h2>

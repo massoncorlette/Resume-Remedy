@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './styles/App.css'
-import { UserInfo } from './components/resumePreview';
+import { UserInfo, ResumePreview } from './components/resumePreview';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -19,9 +19,7 @@ function App() {
       <div id="resumeContainer">
         <div id="controlsContainer">
         </div>
-        <div id="resumePreviewContainer">
-
-        </div>
+      <ResumePreview />
       </div>
     </>
   )
