@@ -19,7 +19,7 @@ function App() {
       <div id="resumeContainer">
         <div id="controlsContainer">
         </div>
-      <ResumePreview />
+        <ResumePreview />
       </div>
     </>
   )

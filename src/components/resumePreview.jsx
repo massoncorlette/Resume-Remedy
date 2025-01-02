@@ -3,12 +3,21 @@ import { useState } from 'react'
 
 export function UserInfo() {
 
+  const [userData, setUser] = useState({firstName: "Masson", lastName: "Corlette", phoneNumber: "69", email: "asdfasdf" });
+
+  const userPropHandler = (value, propType) => {
+
+    setUser({...userData, [propType]:value});
+  }
 
   return (
     <div id="userInfoContainer">
       <div id="firstName" className="infoInput">
         <label htmlFor="firstName">First Name</label>
-        <input name="firstName"></input>
+        <input name="firstName"
+        type="text"
+        value={userData.firstName}
+        onChange={(event) => userPropHandler(event.target.value, "firstName")}></input>
       </div>
       <div id="lastName" className="infoInput">
         <label htmlFor="lastName">Last Name</label>
@@ -29,7 +38,6 @@ export function UserInfo() {
 
 export function ResumePreview() {
 
-  const [userData, setUser] = useState({firstName: "Masson", lastName: "Corlette", phoneNumber: "69", email: "asdfasdf" })
 
   return (
     <div id="resumePreviewContainer">
