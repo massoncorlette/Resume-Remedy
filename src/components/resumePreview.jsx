@@ -1,14 +1,6 @@
-import { useState } from 'react'
 
+export function UserInfo({userPropHandler,userData}) {
 
-export function UserInfo() {
-
-  const [userData, setUser] = useState({firstName: "Masson", lastName: "Corlette", phoneNumber: "69", email: "asdfasdf" });
-
-  const userPropHandler = (value, propType) => {
-
-    setUser({...userData, [propType]:value});
-  }
 
   return (
     <div id="userInfoContainer">
@@ -35,16 +27,13 @@ export function UserInfo() {
   );
 }
 
-
-export function ResumePreview() {
+//child component
+export function ResumePreview({userData}) {
 
 
   return (
     <div id="resumePreviewContainer">
-      <h2>Resume Preview</h2>
-      <p><strong>Name:</strong> {userData.firstName} {userData.lastName}</p>
-      <p><strong>Contact Number:</strong> {userData.phoneNumber}</p>
-      <p><strong>Email:</strong> {userData.email}</p>
+      {userData.firstName}
     </div>
   );
 }

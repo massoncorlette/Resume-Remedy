@@ -16,6 +16,7 @@ Currently, two official plugins are available:
 
 
 Pseudo: 
-Within UserInfo we will want to setState for person object upon every instance of change.
-We can then pass the props to ResumePreview which seems to have to be a 
-child component? 
+
+1. Can use the root component App as the parent component since we are only needing to re render for one User Object
+
+2. 
