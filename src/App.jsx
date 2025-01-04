@@ -3,7 +3,7 @@ import './styles/App.css'
 import { UserInfo, ResumePreview } from './components/resumePreview';
 
 function App() {
-  const [userData, setUser] = useState({firstName: "Masson", lastName: "Corlette", phoneNumber: "69", email: "asdfasdf" });
+  const [userData, setUser] = useState({firstName: "Olivia", lastName: "Bennett", phoneNumber: "(702) 456-7890", email: "exampleemail@sbcglobal.net", location: "89 Birch Lane, Las Vegas, NV" });
 
   //handler function
   const userPropHandler = (value, propType) => {

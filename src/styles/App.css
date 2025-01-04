@@ -30,22 +30,35 @@ body {
   font-size: 24px;
 }
 
+#userInfoContainer, #userHistoryContainer {
+  border: solid 1px;
+  padding: 1rem;
+}
+
 #userInfoContainer {
   grid-column: 2/10;
   grid-row: 3/6;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .infoInput {
   flex: 1;
-  width: 100%;
+  width: 90%;
   display: flex;
   flex-direction: column;
 }
 
-#firstName {
-  width: 100%;
+input {
+  background-color: var(--primary-color);
+  padding: 0.5rem;
+  border-radius: 10px;
+}
+
+label {
+  margin-left: 1%;
 }
 
 #userHistoryContainer {
@@ -67,18 +80,17 @@ body {
 }
 
 #resumePreviewContainer {
-  width: 595px; 
-  height: 842px;
+  width: 37.1875rem;
+  height: 52.625rem;  
   border: solid black 1px;
   display: flex;
+  font-family: "Roboto Slab", serif;
+  color: rgba(0, 0, 0, 0.801);
 }
 
 #resumeMarginContainer {
   flex: 1;
-  margin-top: 5%;
-  margin-bottom: 5%;
-  margin-right: 5%;
-  margin-left: 5%;
+  margin: 3%;
   display: grid;
   grid-template-columns: repeat(5,20%);
   grid-template-rows: repeat(20,5%);
@@ -90,7 +102,46 @@ body {
 }
 
 #resumeHeaderContainer {
-  grid-row: 1/5;
+  grid-row: 1/4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#headerName {
+  font-size: 1.75rem;
+  font-family: "Roboto", serif;;
+}
+
+#titleName {
+  margin-bottom: 2%;
+}
+
+#contactInfo {
+  font-size: 0.75rem;
+  width: 100%;
+  gap: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 228, 196, 0.5);
+}
+
+#resumeSummaryContainer {
+  grid-row: 4/7;
+}
+
+#resumeWorkContainer {
+  grid-row: 7/16;
+}
+
+#resumeEducationContainer {
+  grid-row: 16/19;
+}
+
+#resumeSkillsContainer {
+  grid-row: 19/21;
 }
 
 

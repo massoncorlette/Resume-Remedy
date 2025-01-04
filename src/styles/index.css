@@ -1,4 +1,4 @@
-* {border: solid red 1px;}
+* {border: solid red 0px;}
 
 /* global styles here */
 
@@ -7,4 +7,9 @@ body {
   margin: 0%;
   display: flex;
   font-family:  "Merriweather", serif;;
+}
+
+:root {
+  --primary-color: rgb(201, 201, 201);
+  --secondary-color: rgb(0, 153, 255);
 }

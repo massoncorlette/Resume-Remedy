@@ -13,15 +13,31 @@ export function UserInfo({userPropHandler,userData}) {
       </div>
       <div id="lastName" className="infoInput">
         <label htmlFor="lastName">Last Name</label>
-        <input name="lastName"></input>
+        <input name="lastName"
+        type="text"
+        value={userData.lastName}
+        onChange={(event) => userPropHandler(event.target.value, "lastName")}></input>
       </div>
       <div id="phoneNumber" className="infoInput">
         <label htmlFor="phoneNumber">Contact Number</label>
-        <input name="phoneNumber"></input>
+        <input name="phoneNumber"
+        type="text"
+        value={userData.phoneNumber}
+        onChange={(event) => userPropHandler(event.target.value, "phoneNumber")}></input>
       </div>
       <div id="email" className="infoInput">
         <label htmlFor="email">Email</label>
-        <input name="email"></input>
+        <input name="email"
+        type="text"
+        value={userData.email}
+        onChange={(event) => userPropHandler(event.target.value, "email")}></input>
+      </div>
+      <div id="location" className="infoInput">
+        <label htmlFor="location">Location</label>
+        <input name="location"
+        type="text"
+        value={userData.location}
+        onChange={(event) => userPropHandler(event.target.value, "location")}></input>
       </div>
     </div>
   );
@@ -35,7 +51,13 @@ export function ResumePreview({userData}) {
     <div id="resumePreviewContainer">
       <div id="resumeMarginContainer">
         <div id="resumeHeaderContainer">
-
+          <div id="headerName"> {userData.firstName} {userData.lastName} </div>
+          <div id="titleName">Student</div>
+          <div id="contactInfo">
+            <div id="phoneNumber"> {userData.phoneNumber} </div>
+            <div id="email"> {userData.email} </div>
+            <div id="location"> {userData.location} </div>
+          </div>
         </div>
         <div id="resumeSummaryContainer">
 
@@ -47,7 +69,7 @@ export function ResumePreview({userData}) {
 
         </div>
         <div id="resumeSkillsContainer">
-          
+
         </div>
       </div>
     </div>
