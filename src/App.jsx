@@ -17,7 +17,7 @@ function App() {
     <>
       <div id="editorContainer">
         <div id="logoContainer">
-          <p id="title"> {userData.firstName} </p>
+          <p id="title">Resume Remedy.</p>
         </div>
         <UserInfo userPropHandler={userPropHandler} userData={userData}/>
         <div id="userHistoryContainer">

@@ -33,7 +33,23 @@ export function ResumePreview({userData}) {
 
   return (
     <div id="resumePreviewContainer">
-      {userData.firstName}
+      <div id="resumeMarginContainer">
+        <div id="resumeHeaderContainer">
+
+        </div>
+        <div id="resumeSummaryContainer">
+
+        </div>
+        <div id="resumeWorkContainer">
+
+        </div>
+        <div id="resumeEducationContainer">
+
+        </div>
+        <div id="resumeSkillsContainer">
+          
+        </div>
+      </div>
     </div>
   );
 }

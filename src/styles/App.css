@@ -69,7 +69,30 @@ body {
 #resumePreviewContainer {
   width: 595px; 
   height: 842px;
+  border: solid black 1px;
+  display: flex;
 }
+
+#resumeMarginContainer {
+  flex: 1;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  margin-right: 5%;
+  margin-left: 5%;
+  display: grid;
+  grid-template-columns: repeat(5,20%);
+  grid-template-rows: repeat(20,5%);
+}
+
+#resumeHeaderContainer, #resumeSummaryContainer, #resumeWorkContainer,
+#resumeEducationContainer, #resumeSkillsContainer {
+  grid-column: 1/6;
+}
+
+#resumeHeaderContainer {
+  grid-row: 1/5;
+}
+
 
 /* minimize */
 @media (max-width: 1300px) {
