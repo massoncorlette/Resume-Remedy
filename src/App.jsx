@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './styles/App.css'
-import { UserInfo, ResumePreview } from './components/resumePreview';
+import { UserInfo, ResumePreview, UserHistory } from './components/resumePreview';
 
 function App() {
   const [userData, setUser] = useState({firstName: "Olivia", lastName: "Bennett", phoneNumber: "(702) 456-7890", email: "exampleemail@sbcglobal.net", location: "89 Birch Lane, Las Vegas, NV" });
@@ -20,9 +20,7 @@ function App() {
           <p id="title">Resume Remedy.</p>
         </div>
         <UserInfo userPropHandler={userPropHandler} userData={userData}/>
-        <div id="userHistoryContainer">
-
-        </div>
+        <UserHistory />
       </div>
       <div id="resumeContainer">
         <div id="controlsContainer">

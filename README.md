@@ -3,6 +3,14 @@
 User can add 3 work experiences + 2 education references
 The containers to add to resume, I can reset upon adding to resume
 
+Within the User Experience container, I would like to add functionality where upon expanding one section, the other closes. Which would involve 1 parent and 3 child components, so state can be passed as a prop. 
+
+1. User clicks btn, function prop is called within child components Panels
+2. Index number is saved to state variable from inline function in parent
+3. The parent component re renders for panels to display correctly
+
+
+
 Notes on being modular using React. So it seems that we will use 
 App.jsx to import all of our components from directory. This way we 
 can keep things modular and organized. 
@@ -17,8 +25,3 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
 
-Pseudo: 
-
-1. Can use the root component App as the parent component since we are only needing to re render for one User Object
-
-2. 

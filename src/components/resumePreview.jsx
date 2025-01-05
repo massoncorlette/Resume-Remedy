@@ -1,3 +1,5 @@
+import squareadd from '../assets/squareadd.svg';
+import { useState } from 'react'
 
 export function UserInfo({userPropHandler,userData}) {
 
@@ -41,9 +43,62 @@ export function UserInfo({userPropHandler,userData}) {
       </div>
     </div>
   );
+};
+
+export function UserHistory({ userPropHandler, userData }) {
+
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  return (
+    <div id="userHistoryContainer">
+      <div>
+        <div className="userHistoryHeaders">Professional Summary</div>
+        <UserHistoryPanels isActive={activeIndex === 0}
+        onShow={() => setActiveIndex(0)} >
+        <p>dd</p> </UserHistoryPanels>
+      </div>
+
+      <div>
+        <div className="userHistoryHeaders">Experience</div>
+        <div>
+          <img src={squareadd} className="userIcons" alt="Add Icon" />
+        </div>
+      </div>
+
+      <div>
+        <div className="userHistoryHeaders">Education</div>
+        <div>
+          <img src={squareadd} className="userIcons" alt="Add Icon" />
+        </div>
+      </div>
+    </div>
+  );
 }
 
-//child component
+
+// pass properties for 
+function UserHistoryPanels({ isActive, onShow, children}) {
+
+  return (
+
+    <div className="panel">
+      {isActive ? (
+        <p>{children}</p>
+      ) : (
+        <img src={squareadd} className="userIcons">
+          <button onClick={onShow}>
+            <img src={squareadd} className="userIcons" alt="Add Icon" />
+          </button>
+        </img>
+      )}
+    </div>
+
+
+
+  )
+
+}
+
 export function ResumePreview({userData}) {
 
 
