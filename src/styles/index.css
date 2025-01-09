@@ -11,13 +11,31 @@ body {
 
 :root {
   --primary-color: rgb(201, 201, 201);
-  --secondary-color: rgb(0, 153, 255);
+  --container-color: rgba(255, 251, 251, 0.966);
+  --accent-color: rgb(0, 153, 255); /*printer button */
+  --background-color: #f8f9fa; 
+  --field-background: #e9ecef; 
+  
+  --text-color: #495057; 
+  --heading-color: #2d2d2d; 
+  
+  --primary-accent: #005f73; 
+  --secondary-accent: #ffb703; 
+  --highlight-accent: #ef476f; /*printer button */
+  
+  --border-color: #dee2e6; 
+
+  --button-color: #06d6a0; 
+  --button-hover: #05c78c; 
+
 }
 
 button {
-  background-color: transparent;
+  background-color: var(--button-color);
+  border-radius: 60%;
 }
 
 button:hover {
   cursor: pointer;
-}
+  background-color: var(--button-hover);
+};

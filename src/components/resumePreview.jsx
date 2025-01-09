@@ -56,7 +56,6 @@ export function UserHistory({ userPropHandler, userData }) {
       onShow={() => setActiveIndex(1)} >
       <div>Test</div></UserHistoryPanels>
 
-
       <UserHistoryPanels header="Work Experience" 
       isActive={activeIndex === 2}
       onShow={() => setActiveIndex(2)} >

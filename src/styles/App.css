@@ -10,11 +10,15 @@
 
 body {
   height: 140vh;
+  cursor: default;
+  background-color: var(--background-color) ;
+  color: var(--text-color);
 }
 
 /* Montserrat for headers */
 #title {
   font-family:"Montserrat", serif; ;
+  color: var(--heading-color);
 }
 
 #editorContainer {
@@ -27,12 +31,14 @@ body {
 #logoContainer {
   grid-column: 2/5;
   grid-row: 1/2;
-  font-size: 2rem;
+  font-size: 2.5rem;
 }
 
 #userInfoContainer, #userHistoryContainer {
   border: solid 1px;
   padding: 1rem;
+  background-color: var(--container-color);
+
 }
 
 #userInfoContainer {
@@ -52,9 +58,11 @@ body {
 }
 
 .userIcons {
-  width: 2rem;
+  width: 1.5rem;
   height: auto;
+  margin-top: 10%;
 }
+
 
 .activePanel {
   flex: 2;
@@ -62,12 +70,20 @@ body {
 
 .nonActivePanel {
   flex: 1;
+
+}
+
+.nonActivePanel:hover {
+  opacity: 100%;
+}
+
+#testHistory {
+  border-bottom: solid black 1px ;
 }
 
 
 #userHistoryContainer div {
   display: flex;
-  flex: 1;
   flex-direction: column;
   align-items: center;
 }
@@ -75,6 +91,7 @@ body {
 .userHistoryHeaders {
   font-size: 1.3rem;
   justify-content: center;
+  margin-bottom: 1%;
 }
 
 
@@ -86,9 +103,10 @@ body {
 }
 
 input {
-  background-color: var(--primary-color);
+  background-color: var(--field-background);
   padding: 0.5rem;
   border-radius: 10px;
+  border-color: var(--border-color);
 }
 
 label {
@@ -114,6 +132,8 @@ label {
   display: flex;
   font-family: "Roboto Slab", serif;
   color: rgba(0, 0, 0, 0.801);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: white;
 }
 
 #resumeMarginContainer {
