@@ -1,9 +1,9 @@
-* {border: solid red 1px;}
+* {border: solid red 0px;}
 
 /* global styles here */
 
 body {
-  height: 100vh;
+  min-height: 100vh;
   margin: 0%;
   display: flex;
   font-family:  "Merriweather", serif;;
@@ -12,4 +12,12 @@ body {
 :root {
   --primary-color: rgb(201, 201, 201);
   --secondary-color: rgb(0, 153, 255);
+}
+
+button {
+  background-color: transparent;
+}
+
+button:hover {
+  cursor: pointer;
 }

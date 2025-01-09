@@ -51,47 +51,46 @@ export function UserHistory({ userPropHandler, userData }) {
 
   return (
     <div id="userHistoryContainer">
-      <div>
-        <div className="userHistoryHeaders">Professional Summary</div>
-        <UserHistoryPanels isActive={activeIndex === 0}
-        onShow={() => setActiveIndex(0)} >
-        <p>dd</p> </UserHistoryPanels>
-      </div>
+      <UserHistoryPanels header="Professional Experience" 
+      isActive={activeIndex === 1}
+      onShow={() => setActiveIndex(1)} >
+      <div>Test</div></UserHistoryPanels>
 
-      <div>
-        <div className="userHistoryHeaders">Experience</div>
-        <div>
-          <img src={squareadd} className="userIcons" alt="Add Icon" />
-        </div>
-      </div>
 
-      <div>
-        <div className="userHistoryHeaders">Education</div>
-        <div>
-          <img src={squareadd} className="userIcons" alt="Add Icon" />
-        </div>
-      </div>
+      <UserHistoryPanels header="Work Experience" 
+      isActive={activeIndex === 2}
+      onShow={() => setActiveIndex(2)} >
+      <div>Test</div></UserHistoryPanels>
+
+       <UserHistoryPanels header="Education" 
+      isActive={activeIndex === 3}
+      onShow={() => setActiveIndex(3)} >
+      <div>Test</div></UserHistoryPanels>
     </div>
   );
 }
 
 
 // pass properties for 
-function UserHistoryPanels({ isActive, onShow, children}) {
+function UserHistoryPanels({ header,isActive, onShow, children}) {
 
   return (
 
-    <div className="panel">
+    <>
       {isActive ? (
-        <p>{children}</p>
+        <div className="activePanel">{children}</div>
       ) : (
-        <img src={squareadd} className="userIcons">
+        <div className="nonActivePanel">
+          <div className='userHistoryHeaders'>{header}</div>
           <button onClick={onShow}>
-            <img src={squareadd} className="userIcons" alt="Add Icon" />
-          </button>
-        </img>
+              <img src={squareadd} className="userIcons" alt="Add Icon" />
+            </button>
+        </div>
       )}
-    </div>
+    
+    </>
+
+
 
 
 

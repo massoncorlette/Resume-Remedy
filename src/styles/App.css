@@ -56,9 +56,18 @@ body {
   height: auto;
 }
 
-#userHistoryContainer div {
+.activePanel {
+  flex: 2;
+}
+
+.nonActivePanel {
   flex: 1;
+}
+
+
+#userHistoryContainer div {
   display: flex;
+  flex: 1;
   flex-direction: column;
   align-items: center;
 }

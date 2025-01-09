@@ -23,8 +23,7 @@ function App() {
         <UserHistory />
       </div>
       <div id="resumeContainer">
-        <div id="controlsContainer">
-        </div>
+        <div id="controlsContainer"></div>
         <ResumePreview userData={userData}/>
       </div>
     </>
