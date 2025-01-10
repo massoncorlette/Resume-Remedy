@@ -41,6 +41,13 @@ export function UserInfo({userPropHandler,userData}) {
         value={userData.location}
         onChange={(event) => userPropHandler(event.target.value, "location")}></input>
       </div>
+      <div id="title" className="infoInput">
+        <label htmlFor="title">Title</label>
+        <input name="title"
+        type="text"
+        value={userData.title}
+        onChange={(event) => userPropHandler(event.target.value, "title")}></input>
+      </div>
     </div>
   );
 };
@@ -54,7 +61,9 @@ export function UserHistory({ userPropHandler, userData }) {
       <UserHistoryPanels header="Professional Experience" 
       isActive={activeIndex === 1}
       onShow={() => setActiveIndex(1)} >
-      <div>Test</div></UserHistoryPanels>
+      <div>
+        
+      </div></UserHistoryPanels>
 
       <UserHistoryPanels header="Work Experience" 
       isActive={activeIndex === 2}
@@ -86,15 +95,8 @@ function UserHistoryPanels({ header,isActive, onShow, children}) {
             </button>
         </div>
       )}
-    
     </>
-
-
-
-
-
   )
-
 }
 
 export function ResumePreview({userData}) {
@@ -105,7 +107,7 @@ export function ResumePreview({userData}) {
       <div id="resumeMarginContainer">
         <div id="resumeHeaderContainer">
           <div id="headerName"> {userData.firstName} {userData.lastName} </div>
-          <div id="titleName">Student</div>
+          <div id="titleName" >{userData.title}</div>
           <div id="contactInfo">
             <div id="phoneNumber"> {userData.phoneNumber} </div>
             <div id="email"> {userData.email} </div>
@@ -113,7 +115,8 @@ export function ResumePreview({userData}) {
           </div>
         </div>
         <div id="resumeSummaryContainer">
-
+           <div className='resumeHeaders'>Personal Summary</div>
+           <div id="resumeSummary"></div>
         </div>
         <div id="resumeWorkContainer">
 
