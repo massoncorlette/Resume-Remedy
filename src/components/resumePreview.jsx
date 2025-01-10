@@ -41,7 +41,7 @@ export function UserInfo({userPropHandler,userData}) {
         value={userData.location}
         onChange={(event) => userPropHandler(event.target.value, "location")}></input>
       </div>
-      <div id="title" className="infoInput">
+      <div className="infoInput">
         <label htmlFor="title">Title</label>
         <input name="title"
         type="text"
@@ -61,8 +61,11 @@ export function UserHistory({ userPropHandler, userData }) {
       <UserHistoryPanels header="Professional Experience" 
       isActive={activeIndex === 1}
       onShow={() => setActiveIndex(1)} >
-      <div>
-        
+      <div id="experienceInputContainer">
+        <textarea id="experienceInput" spellCheck="false"
+        type="text"
+        value={userData.summary}
+        onChange={(event) => userPropHandler(event.target.value, "summary")}></textarea>
       </div></UserHistoryPanels>
 
       <UserHistoryPanels header="Work Experience" 
@@ -116,7 +119,7 @@ export function ResumePreview({userData}) {
         </div>
         <div id="resumeSummaryContainer">
            <div className='resumeHeaders'>Personal Summary</div>
-           <div id="resumeSummary"></div>
+           <div id="resumeSummary">{userData.summary}</div>
         </div>
         <div id="resumeWorkContainer">
 

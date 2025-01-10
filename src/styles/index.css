@@ -1,4 +1,4 @@
-* {border: solid red 1px;}
+* {border: solid red 0px;}
 
 /* global styles here */
 
@@ -28,6 +28,20 @@ body {
   --button-color: #06d6a0; 
   --button-hover: #05c78c; 
 
+}
+
+
+input, #experienceInput {
+  background-color: var(--field-background);
+  padding: 0.5rem;
+  border-radius: 10px;
+  border-color: var(--border-color);
+}
+
+label {
+  margin-left: 0.7%;
+  margin-bottom: 0.5%;
+  font-family: inherit;
 }
 
 button {

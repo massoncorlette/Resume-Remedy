@@ -50,8 +50,6 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family:  "Merriweather", serif;;
-
 }
 
 #userHistoryContainer {
@@ -59,6 +57,23 @@ body {
   flex-direction: column;
   grid-column: 2/10;
   grid-row: 8/12;
+}
+
+#experienceInputContainer {
+  flex: 1;
+  display: flex;
+  width: 80%;
+  flex-wrap: wrap;
+}
+
+#experienceInput {
+  flex: 1;
+  width: 100%;
+  resize: none; 
+  overflow-wrap: break-word; 
+  text-align: left; 
+  vertical-align: top; 
+  line-height: 1.5; 
 }
 
 .userIcons {
@@ -70,6 +85,7 @@ body {
 
 .activePanel {
   flex: 2;
+  display: flex;
 }
 
 .nonActivePanel {
@@ -106,18 +122,6 @@ body {
   flex-direction: column;
 }
 
-input {
-  background-color: var(--field-background);
-  padding: 0.5rem;
-  border-radius: 10px;
-  border-color: var(--border-color);
-}
-
-label {
-  margin-left: 0.7%;
-  margin-bottom: 0.5%;
-}
-
 #resumeContainer {
   flex: 1;
   display: flex;
@@ -142,6 +146,7 @@ label {
 }
 
 #resumeMarginContainer {
+  font-size: 0.75rem;
   flex: 1;
   margin: 3%;
   display: grid;
@@ -168,8 +173,13 @@ label {
 .resumeHeaders {
   font-size: 1rem;
   border-bottom: solid black 1px;
-
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  margin-top: 1%;
 }
+
+
 
 #headerName {
   font-size: 1.75rem;
@@ -181,7 +191,6 @@ label {
 }
 
 #contactInfo {
-  font-size: 0.75rem;
   width: 100%;
   gap: 5%;
   display: flex;
