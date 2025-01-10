@@ -27,23 +27,23 @@ export function UserInfo({userPropHandler,userData}) {
         value={userData.phoneNumber}
         onChange={(event) => userPropHandler(event.target.value, "phoneNumber")}></input>
       </div>
-      <div id="email" className="infoInput">
+      <div id="email" className="infoInput" >
         <label htmlFor="email">Email</label>
-        <input name="email"
+        <input name="email" placeholder='exampleemail@sbcglobal.net'
         type="text"
         value={userData.email}
         onChange={(event) => userPropHandler(event.target.value, "email")}></input>
       </div>
       <div id="location" className="infoInput">
         <label htmlFor="location">Location</label>
-        <input name="location"
+        <input name="location" placeholder='Address / City / State'
         type="text"
         value={userData.location}
         onChange={(event) => userPropHandler(event.target.value, "location")}></input>
       </div>
       <div className="infoInput">
         <label htmlFor="title">Title</label>
-        <input name="title"
+        <input name="title" placeholder='Student / Filmmaker / Window Washer ect.'
         type="text"
         value={userData.title}
         onChange={(event) => userPropHandler(event.target.value, "title")}></input>
@@ -62,7 +62,7 @@ export function UserHistory({ userPropHandler, userData }) {
       isActive={activeIndex === 1}
       onShow={() => setActiveIndex(1)} >
       <div id="experienceInputContainer">
-        <textarea id="experienceInput" spellCheck="false"
+        <textarea id="experienceInput" spellCheck="false" maxLength="360" placeholder='360 Max Characters'
         type="text"
         value={userData.summary}
         onChange={(event) => userPropHandler(event.target.value, "summary")}></textarea>
@@ -122,13 +122,17 @@ export function ResumePreview({userData}) {
            <div id="resumeSummary">{userData.summary}</div>
         </div>
         <div id="resumeWorkContainer">
+          <div className='resumeHeaders'>Work Experience</div>
+          <div>
 
+          </div>
         </div>
         <div id="resumeEducationContainer">
+          <div className='resumeHeaders'>Education</div>
 
         </div>
         <div id="resumeSkillsContainer">
-
+          <div className='resumeHeaders'>Skills</div>
         </div>
       </div>
     </div>

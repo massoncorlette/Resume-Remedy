@@ -1,4 +1,4 @@
-* {border: solid red 0px;}
+* {border: solid rgba(255, 0, 0, 0.041) 1px;}
 
 /* global styles here */
 
@@ -38,6 +38,11 @@ input, #experienceInput {
   border-color: var(--border-color);
 }
 
+input:focus, #experienceInput {
+  outline: 1px solid var(--button-color);
+
+}
+
 label {
   margin-left: 0.7%;
   margin-bottom: 0.5%;
@@ -45,6 +50,7 @@ label {
 }
 
 button {
+  margin-top: 1%;
   background-color: var(--button-color);
   border-radius: 60%;
 }
