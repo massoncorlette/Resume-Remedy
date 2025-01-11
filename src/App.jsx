@@ -8,7 +8,7 @@ function App() {
     
    });
 
-  //handler functions
+  //handler function
   const userPropHandler = (value, propType) => {
 
     const changeUser = {...userData, [propType]:value};

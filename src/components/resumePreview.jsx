@@ -53,9 +53,24 @@ export function UserInfo({userPropHandler,userData}) {
 };
 
 //nest WorkHistory components in workhistory section
+//parent to WorkHistory component
 export function UserHistory({ userPropHandler, userData }) {
 
+  //for UserHistory panels, activeIndex Flex 2 property added
   const [activeIndex, setActiveIndex] = useState(0);
+
+  const [userWork, setWork] = useState(
+    {set:true ,company:"Google", job:"Senior Engineer", startdate:"August 15, 1997", enddate: "September 12, 2012"},
+    {set:true, company:"AppleBees", job:"Cook", startdate:"August 15, 1997", enddate: "September 12, 2012"},
+    {set:true, company:"Facebook", job:"UI Designer", startdate:"August 15, 1997", enddate: "September 12, 2012"}
+  )
+
+  //setWork according to passed index number from child component ?
+  //pass in new object(newWork) for new userWork obj based upon index
+  const updateWork = (index, newWork) => {
+    setWork(userWork.map((work, i) => (i === index ? newWork : work)));
+  };
+  
 
   return (
     <div id="userHistoryContainer">
@@ -73,8 +88,10 @@ export function UserHistory({ userPropHandler, userData }) {
       isActive={activeIndex === 2}
       onShow={() => setActiveIndex(2)} >
       <div>
-      
-        
+      <WorkHistoryPanels userPropHandler={updateWork}
+
+
+      />
       </div></UserHistoryPanels>
 
        <UserHistoryPanels header="Education" 
@@ -85,6 +102,22 @@ export function UserHistory({ userPropHandler, userData }) {
   );
 }
 
+//parent to resume preview component
+//add btn element will pass true to onAdd
+function WorkHistoryPanels({userPropHandler,onAdd}) {
+
+
+  return (
+    <>
+      <div className='jobHistoryContainers'>
+        <div className='jobCompany'>
+          { userWork.company }
+        </div>
+      </div>
+    
+    </>
+  )
+}
 
 function UserHistoryPanels({ header,isActive, onShow, children}) {
 
@@ -105,26 +138,7 @@ function UserHistoryPanels({ header,isActive, onShow, children}) {
   )
 }
 
-//parent to resume preview component
-function WorkHistorySection() {
 
-  const [userWork, setWork] = useState(
-    {company:"Google", job:"Senior Engineer", startdate:"August 15, 1997", enddate: "September 12, 2012"},
-    {company:"Google", job:"Senior Engineer", startdate:"August 15, 1997", enddate: "September 12, 2012"},
-    {company:"Google", job:"Senior Engineer", startdate:"August 15, 1997", enddate: "September 12, 2012"}
-  )
-
-  return (
-    <>
-      <div className='jobHistoryContainers'>
-        <div className='jobCompany'>
-          { userWork.company }
-        </div>
-      </div>
-    
-    </>
-  )
-}
 
 export function ResumePreview({userData}) {
 
