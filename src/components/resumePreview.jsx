@@ -52,6 +52,7 @@ export function UserInfo({userPropHandler,userData}) {
   );
 };
 
+//nest WorkHistory components in workhistory section
 export function UserHistory({ userPropHandler, userData }) {
 
   const [activeIndex, setActiveIndex] = useState(0);
@@ -71,7 +72,10 @@ export function UserHistory({ userPropHandler, userData }) {
       <UserHistoryPanels header="Work Experience" 
       isActive={activeIndex === 2}
       onShow={() => setActiveIndex(2)} >
-      <div>Test</div></UserHistoryPanels>
+      <div>
+      
+        
+      </div></UserHistoryPanels>
 
        <UserHistoryPanels header="Education" 
       isActive={activeIndex === 3}
@@ -82,7 +86,6 @@ export function UserHistory({ userPropHandler, userData }) {
 }
 
 
-// pass properties for 
 function UserHistoryPanels({ header,isActive, onShow, children}) {
 
   return (
@@ -98,6 +101,27 @@ function UserHistoryPanels({ header,isActive, onShow, children}) {
             </button>
         </div>
       )}
+    </>
+  )
+}
+
+//parent to resume preview component
+function WorkHistorySection() {
+
+  const [userWork, setWork] = useState(
+    {company:"Google", job:"Senior Engineer", startdate:"August 15, 1997", enddate: "September 12, 2012"},
+    {company:"Google", job:"Senior Engineer", startdate:"August 15, 1997", enddate: "September 12, 2012"},
+    {company:"Google", job:"Senior Engineer", startdate:"August 15, 1997", enddate: "September 12, 2012"}
+  )
+
+  return (
+    <>
+      <div className='jobHistoryContainers'>
+        <div className='jobCompany'>
+          { userWork.company }
+        </div>
+      </div>
+    
     </>
   )
 }

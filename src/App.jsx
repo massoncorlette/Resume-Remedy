@@ -8,13 +8,14 @@ function App() {
     
    });
 
-  //handler function
+  //handler functions
   const userPropHandler = (value, propType) => {
 
     const changeUser = {...userData, [propType]:value};
 
     setUser(changeUser);
   }
+
 
   return (
     <>
@@ -23,7 +24,8 @@ function App() {
           <p id="title">Resume Remedy.</p>
         </div>
         <UserInfo userPropHandler={userPropHandler} userData={userData}/>
-        <UserHistory userPropHandler={userPropHandler} userData={userData}/>
+        <UserHistory userPropHandler={userPropHandler} 
+        userData={userData}/>
       </div>
       <div id="resumeContainer">
         <div id="controlsContainer"></div>

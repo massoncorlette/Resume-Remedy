@@ -172,6 +172,7 @@ body {
 
 .resumeHeaders {
   font-size: 1rem;
+  padding-bottom: 1%;
   border-bottom: solid black 1px;
   width: 80%;
   display: flex;
