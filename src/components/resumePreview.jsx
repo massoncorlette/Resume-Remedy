@@ -1,4 +1,5 @@
 import squareadd from '../assets/squareadd.svg';
+import editpencil from '../assets/editPencil.svg';
 import { useState } from 'react';
 
 export function UserInfo({ updateInfo,userData}) {
@@ -51,20 +52,20 @@ export function UserInfo({ updateInfo,userData}) {
     </div>
   );
 };
-//nest WorkHistory components in workhistory section
-//parent to WorkHistory component
 
+//parent to WorkHistory component
 export function UserHistory({ updateWork, userWork, userInfo }) {
 
-  //for UserHistory panels, activeIndex Flex 2 property added
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeHistoryPanelIndex, setActiveHistory] = useState(0);
+
+  const [activeWorkPanelIndex, setActiveWork] = useState(0);
 
 
   return (
     <div id="userHistoryContainer">
       <UserHistoryPanels header="Professional Experience" 
-      isActive={activeIndex === 1}
-      onShow={() => setActiveIndex(1)} >
+      isActive={activeHistoryPanelIndex === 1}
+      onShow={() => setActiveHistory(1)} >
       <div id="experienceInputContainer">
         <textarea id="experienceInput" spellCheck="false" maxLength="360" placeholder='360 Max Characters'
         type="text"
@@ -73,39 +74,20 @@ export function UserHistory({ updateWork, userWork, userInfo }) {
       </div></UserHistoryPanels>
 
       <UserHistoryPanels header="Work Experience" 
-      isActive={activeIndex === 2}
-      onShow={() => setActiveIndex(2)} >
+      isActive={activeHistoryPanelIndex === 2}
+      onShow={() => setActiveHistory(2)} >
       <div id="userWorkContainer">
-        <div className="workPanels"></div>
-        <div className="workPanels"></div>
-        <div className="workPanels"></div>
+        <UserWorkPanels />
+        <UserWorkPanels />
+        <UserWorkPanels />
       </div></UserHistoryPanels>
 
        <UserHistoryPanels header="Education" 
-      isActive={activeIndex === 3}
-      onShow={() => setActiveIndex(3)} >
+      isActive={activeHistoryPanelIndex === 3}
+      onShow={() => setActiveHistory(3)} >
       <div>Test</div></UserHistoryPanels>
     </div>
   );
-}
-
-//add btn element will pass true to onAdd
-function WorkHistoryPanels({onAdd,userWork}) {
-
-
-  return (
-    <>
-      {onAdd ? (
-        <div className='jobHistoryContainers'>
-          <div className='jobCompany'>
-            { userWork.company }
-          </div>
-        </div>
-      ) : (
-        <></>
-      )}
-    </>
-  )
 }
 
 function UserHistoryPanels({ header,isActive, onShow, children}) {
@@ -124,10 +106,49 @@ function UserHistoryPanels({ header,isActive, onShow, children}) {
         </div>
       )}
     </>
-  )
-}
+  );
+};
+
+function UserWorkPanels({isActive,onShow,index,userWork}) {
+
+  return (
+
+    <>
+      {isActive ? (
+        <div className="activeworkPanel"></div>
+      ) : (
+        <div className="nonactiveworkPanel">
+          <div className='workInfoPreviewContainer'>
+
+          </div>
+          <button onClick={onShow}>
+            <img src={editpencil} className='editIcons' />
+          </button>
+        </div>
+      )}
+    </>
+  );
+};
+
+//add btn element will pass true to onAdd
+//this component will be nested in ResumePreview
+function WorkHistoryPanels({onAdd,userWork}) {
 
 
+  return (
+    <>
+      {onAdd ? (
+        <div className='jobHistoryContainers'>
+          <div className='jobCompany'>
+            { userWork.company }
+          </div>
+        </div>
+      ) : (
+        <></>
+      )}
+    </>
+  );
+};
 
 export function ResumePreview({userData}) {
 
