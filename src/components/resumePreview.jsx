@@ -54,7 +54,7 @@ export function UserInfo({ updateInfo,userData}) {
 //nest WorkHistory components in workhistory section
 //parent to WorkHistory component
 
-export function UserHistory({ updateWork, userWork }) {
+export function UserHistory({ updateWork, userWork, userInfo }) {
 
   //for UserHistory panels, activeIndex Flex 2 property added
   const [activeIndex, setActiveIndex] = useState(0);
@@ -68,15 +68,17 @@ export function UserHistory({ updateWork, userWork }) {
       <div id="experienceInputContainer">
         <textarea id="experienceInput" spellCheck="false" maxLength="360" placeholder='360 Max Characters'
         type="text"
-        value={userWork.summary}
+        value={userInfo.summary}
         onChange={(event) => updateWork(event.target.value, "summary")}></textarea>
       </div></UserHistoryPanels>
 
       <UserHistoryPanels header="Work Experience" 
       isActive={activeIndex === 2}
       onShow={() => setActiveIndex(2)} >
-      <div>
-
+      <div id="userWorkContainer">
+        <div className="workPanels"></div>
+        <div className="workPanels"></div>
+        <div className="workPanels"></div>
       </div></UserHistoryPanels>
 
        <UserHistoryPanels header="Education" 

@@ -76,6 +76,17 @@ body {
   line-height: 1.5; 
 }
 
+#userWorkContainer {
+  flex: 1;
+  width: 100%;
+  display: flex;
+}
+
+.workPanels {
+  flex: 1;
+  width: 100%;
+}
+
 .userIcons {
   width: 1.3rem;
   height: auto;
