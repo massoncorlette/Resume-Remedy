@@ -1,7 +1,7 @@
 import squareadd from '../assets/squareadd.svg';
-import { useState } from 'react'
+import { useState } from 'react';
 
-export function UserInfo({userPropHandler,userData}) {
+export function UserInfo({ updateInfo,userData}) {
 
 
   return (
@@ -11,66 +11,54 @@ export function UserInfo({userPropHandler,userData}) {
         <input name="firstName"
         type="text"
         value={userData.firstName}
-        onChange={(event) => userPropHandler(event.target.value, "firstName")}></input>
+        onChange={(event) => updateInfo(event.target.value, "firstName")}></input>
       </div>
       <div id="lastName" className="infoInput">
         <label htmlFor="lastName">Last Name</label>
         <input name="lastName"
         type="text"
         value={userData.lastName}
-        onChange={(event) => userPropHandler(event.target.value, "lastName")}></input>
+        onChange={(event) => updateInfo(event.target.value, "lastName")}></input>
       </div>
       <div id="phoneNumber" className="infoInput">
         <label htmlFor="phoneNumber">Contact Number</label>
         <input name="phoneNumber"
         type="text"
         value={userData.phoneNumber}
-        onChange={(event) => userPropHandler(event.target.value, "phoneNumber")}></input>
+        onChange={(event) => updateInfo(event.target.value, "phoneNumber")}></input>
       </div>
       <div id="email" className="infoInput" >
         <label htmlFor="email">Email</label>
         <input name="email" placeholder='exampleemail@sbcglobal.net'
         type="text"
         value={userData.email}
-        onChange={(event) => userPropHandler(event.target.value, "email")}></input>
+        onChange={(event) => updateInfo(event.target.value, "email")}></input>
       </div>
       <div id="location" className="infoInput">
         <label htmlFor="location">Location</label>
         <input name="location" placeholder='Address / City / State'
         type="text"
         value={userData.location}
-        onChange={(event) => userPropHandler(event.target.value, "location")}></input>
+        onChange={(event) => updateInfo(event.target.value, "location")}></input>
       </div>
       <div className="infoInput">
         <label htmlFor="title">Title</label>
         <input name="title" placeholder='Student / Filmmaker / Window Washer ect.'
         type="text"
         value={userData.title}
-        onChange={(event) => userPropHandler(event.target.value, "title")}></input>
+        onChange={(event) => updateInfo(event.target.value, "title")}></input>
       </div>
     </div>
   );
 };
-
 //nest WorkHistory components in workhistory section
 //parent to WorkHistory component
-export function UserHistory({ userPropHandler, userData }) {
+
+export function UserHistory({ updateWork, userWork }) {
 
   //for UserHistory panels, activeIndex Flex 2 property added
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const [userWork, setWork] = useState(
-    {set:true ,company:"Google", job:"Senior Engineer", startdate:"August 15, 1997", enddate: "September 12, 2012"},
-    {set:true, company:"AppleBees", job:"Cook", startdate:"August 15, 1997", enddate: "September 12, 2012"},
-    {set:true, company:"Facebook", job:"UI Designer", startdate:"August 15, 1997", enddate: "September 12, 2012"}
-  )
-
-  //setWork according to passed index number from child component ?
-  //pass in new object(newWork) for new userWork obj based upon index
-  const updateWork = (index, newWork) => {
-    setWork(userWork.map((work, i) => (i === index ? newWork : work)));
-  };
-  
 
   return (
     <div id="userHistoryContainer">
@@ -80,18 +68,15 @@ export function UserHistory({ userPropHandler, userData }) {
       <div id="experienceInputContainer">
         <textarea id="experienceInput" spellCheck="false" maxLength="360" placeholder='360 Max Characters'
         type="text"
-        value={userData.summary}
-        onChange={(event) => userPropHandler(event.target.value, "summary")}></textarea>
+        value={userWork.summary}
+        onChange={(event) => updateWork(event.target.value, "summary")}></textarea>
       </div></UserHistoryPanels>
 
       <UserHistoryPanels header="Work Experience" 
       isActive={activeIndex === 2}
       onShow={() => setActiveIndex(2)} >
       <div>
-      <WorkHistoryPanels userPropHandler={updateWork}
 
-
-      />
       </div></UserHistoryPanels>
 
        <UserHistoryPanels header="Education" 
@@ -102,19 +87,21 @@ export function UserHistory({ userPropHandler, userData }) {
   );
 }
 
-//parent to resume preview component
 //add btn element will pass true to onAdd
-function WorkHistoryPanels({userPropHandler,onAdd}) {
+function WorkHistoryPanels({onAdd,userWork}) {
 
 
   return (
     <>
-      <div className='jobHistoryContainers'>
-        <div className='jobCompany'>
-          { userWork.company }
+      {onAdd ? (
+        <div className='jobHistoryContainers'>
+          <div className='jobCompany'>
+            { userWork.company }
+          </div>
         </div>
-      </div>
-    
+      ) : (
+        <></>
+      )}
     </>
   )
 }
