@@ -95,7 +95,7 @@ body {
 
 
 .activePanel {
-  flex: 2;
+  flex-grow: 4;
   display: flex;
 }
 
@@ -113,10 +113,17 @@ body {
   width: 100%;
 }
 
+.activeworkPanel {
+  flex: 2;
+}
+
+.editIcons {
+  
+}
+
 #testHistory {
   border-bottom: solid black 1px ;
 }
-
 
 #userHistoryContainer div {
   display: flex;

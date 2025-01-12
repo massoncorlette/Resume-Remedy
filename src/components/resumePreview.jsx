@@ -77,9 +77,22 @@ export function UserHistory({ updateWork, userWork, userInfo }) {
       isActive={activeHistoryPanelIndex === 2}
       onShow={() => setActiveHistory(2)} >
       <div id="userWorkContainer">
-        <UserWorkPanels />
-        <UserWorkPanels />
-        <UserWorkPanels />
+      {activeWorkPanelIndex === 0 && (
+        <>
+         <UserWorkPanels onShow={() => setActiveWork(1)} isActive={false} />
+         <UserWorkPanels onShow={() => setActiveWork(2)} isActive={false} />
+         <UserWorkPanels onShow={() => setActiveWork(2)} isActive={false} />
+        </>
+      )}
+      {activeWorkPanelIndex === 1 && (
+        <UserWorkPanels onShow={() => setActiveWork(1)} isActive={true} />
+      )}
+      {activeWorkPanelIndex === 2 && (
+        <UserWorkPanels onShow={() => setActiveWork(2)} isActive={true} />
+      )}
+      {activeWorkPanelIndex === 3 && (
+        <UserWorkPanels onShow={() => setActiveWork(3)} isActive={true} />
+      )}
       </div></UserHistoryPanels>
 
        <UserHistoryPanels header="Education" 
@@ -88,7 +101,29 @@ export function UserHistory({ updateWork, userWork, userInfo }) {
       <div>Test</div></UserHistoryPanels>
     </div>
   );
-}
+};
+
+function UserWorkPanels({isActive,onShow,index,userWork}) {
+
+
+  return (
+
+    <>
+      {isActive ? (
+        <div className="activeworkPanel"></div>
+      ) : (
+        <div className="nonactiveworkPanel">
+          <div className='workInfoPreviewContainer'>
+
+          </div>
+          <button onClick={onShow}>
+            <img src={editpencil} className='editIcons' />
+          </button>
+        </div>
+      )}
+    </>
+  );
+};
 
 function UserHistoryPanels({ header,isActive, onShow, children}) {
 
@@ -109,26 +144,6 @@ function UserHistoryPanels({ header,isActive, onShow, children}) {
   );
 };
 
-function UserWorkPanels({isActive,onShow,index,userWork}) {
-
-  return (
-
-    <>
-      {isActive ? (
-        <div className="activeworkPanel"></div>
-      ) : (
-        <div className="nonactiveworkPanel">
-          <div className='workInfoPreviewContainer'>
-
-          </div>
-          <button onClick={onShow}>
-            <img src={editpencil} className='editIcons' />
-          </button>
-        </div>
-      )}
-    </>
-  );
-};
 
 //add btn element will pass true to onAdd
 //this component will be nested in ResumePreview
