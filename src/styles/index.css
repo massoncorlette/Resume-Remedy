@@ -1,4 +1,4 @@
-* {border: solid rgba(255, 0, 0, 0.041) 1px;}
+* {border: solid rgba(255, 0, 0, 0.178) 1px;}
 
 /* global styles here */
 
@@ -31,16 +31,15 @@ body {
 }
 
 
-input, #experienceInput {
+input, .experienceInput , .jobSummary{
   background-color: var(--field-background);
   padding: 0.5rem;
   border-radius: 10px;
   border-color: var(--border-color);
 }
 
-input:focus, #experienceInput {
+input:focus, .experienceInput:focus, .jobSummary:focus {
   outline: 1px solid var(--button-color);
-
 }
 
 label {

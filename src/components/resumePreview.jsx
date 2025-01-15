@@ -14,7 +14,7 @@ export function UserInfo({ updateInfo,userData}) {
         value={userData.firstName}
         onChange={(event) => updateInfo(event.target.value, "firstName")}></input>
       </div>
-      <div id="lastName" className="infoInput">
+      <div id="lastName" className="infoInput" onChange={(event)=> userPropHandler(event.target.value, "firstName")}>
         <label htmlFor="lastName">Last Name</label>
         <input name="lastName"
         type="text"
@@ -54,7 +54,7 @@ export function UserInfo({ updateInfo,userData}) {
 };
 
 //parent to WorkHistory component
-export function UserHistory({ updateWork, userWork, userInfo }) {
+export function UserHistory({ updateInfo, updateWork, userWork, userInfo }) {
 
   const [activeHistoryPanelIndex, setActiveHistory] = useState(0);
 
@@ -66,11 +66,11 @@ export function UserHistory({ updateWork, userWork, userInfo }) {
       <UserHistoryPanels header="Professional Experience" 
       isActive={activeHistoryPanelIndex === 1}
       onShow={() => setActiveHistory(1)} >
-      <div id="experienceInputContainer">
-        <textarea id="experienceInput" spellCheck="false" maxLength="360" placeholder='360 Max Characters'
+      <div className="experienceInputContainer">
+        <textarea className="experienceInput" spellCheck="false" maxLength="360" placeholder='360 Max Characters'
         type="text"
         value={userInfo.summary}
-        onChange={(event) => updateWork(event.target.value, "summary")}></textarea>
+        onChange={(event) => updateInfo(event.target.value, "summary")}></textarea>
       </div></UserHistoryPanels>
 
       <UserHistoryPanels header="Work Experience" 
@@ -79,19 +79,19 @@ export function UserHistory({ updateWork, userWork, userInfo }) {
       <div id="userWorkContainer">
       {activeWorkPanelIndex === 0 && (
         <>
-         <UserWorkPanels onShow={() => setActiveWork(1)} isActive={false} />
+         <UserWorkPanels onShow={() => setActiveWork(1)} isActive={false} index={0} userWork={userWork}/>
          <UserWorkPanels onShow={() => setActiveWork(2)} isActive={false} />
          <UserWorkPanels onShow={() => setActiveWork(2)} isActive={false} />
         </>
       )}
       {activeWorkPanelIndex === 1 && (
-        <UserWorkPanels onShow={() => setActiveWork(1)} isActive={true} />
+        <UserWorkPanels onShow={() => setActiveWork(1)} isActive={true} index={0} userWork={userWork} updateWork={updateWork} />
       )}
       {activeWorkPanelIndex === 2 && (
-        <UserWorkPanels onShow={() => setActiveWork(2)} isActive={true} />
+        <UserWorkPanels onShow={() => setActiveWork(2)} isActive={true} index={1} userWork={userWork} updateWork={updateWork}/>
       )}
       {activeWorkPanelIndex === 3 && (
-        <UserWorkPanels onShow={() => setActiveWork(3)} isActive={true} />
+        <UserWorkPanels onShow={() => setActiveWork(3)} isActive={true} index={2} userWork={userWork} updateWork={updateWork}/>
       )}
       </div></UserHistoryPanels>
 
@@ -103,22 +103,48 @@ export function UserHistory({ updateWork, userWork, userInfo }) {
   );
 };
 
-function UserWorkPanels({isActive,onShow,index,userWork}) {
+function UserWorkPanels({isActive,onShow,index,userWork,updateWork}) {
 
 
   return (
 
     <>
       {isActive ? (
-        <div className="activeworkPanel"></div>
+        <div className="activeworkPanel">
+          <div className='activeWorkPanelInformationContainer'>
+            <div className='activeworkPanelTop'>
+              <div id="companyName">
+                <input onChange={(event) => {updateWork(index,event.target.value,"company")}}
+                className='workInput' value={userWork[index].company}></input>
+              </div>
+              <div id="jobTitle">
+                <input className='workInput'></input>
+              </div>
+              <div id="jobDate">
+                <input className='workInput'></input>
+              </div>           
+            </div>
+            <div className='activeworkPanelBottom'>
+              <div className='jobSummaryContainer'>
+                <textarea className='jobSummary'></textarea>
+              </div>
+            </div>
+          </div>
+          <div className='activeWorkPanelSubmitContianer'>
+              <button></button>
+          </div>
+        </div>
       ) : (
         <div className="nonactiveworkPanel">
           <div className='workInfoPreviewContainer'>
-
+            Put Company Text
           </div>
-          <button onClick={onShow}>
-            <img src={editpencil} className='editIcons' />
-          </button>
+          <div>
+            <button onClick={onShow}>
+              <img src={editpencil} className='editIcons' />
+            </button>
+          </div>
+
         </div>
       )}
     </>

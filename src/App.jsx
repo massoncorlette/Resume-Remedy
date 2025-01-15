@@ -15,15 +15,21 @@ function App() {
     setUser(changeUser);
   };
 
-  const [userWork, setWork] = useState(
+  const [userWork, setWork] = useState([
     {set:true, company:"Google", job:"CEO", startdate:"August 15, 1997", enddate: "September 12, 2012"},
     {set:true, company:"AppleBees", job:"Cook", startdate:"August 15, 1997", enddate: "September 12, 2012"},
     {set:true, company:"Facebook", job:"UI Designer", startdate:"August 15, 1997", enddate: "September 12, 2012"}
-  )
+  ]);
 
   //handler for user history
-  const updateWork = (index, newWork) => {
-    setWork(userWork.map((work, i) => (i === index ? newWork : work)));
+  const updateWork = (index, value, propType) => {
+    const newWork = userWork.map((work, i) => {
+      if (i === index) {
+        return { ...work, [propType]: value };
+      }
+      return work;
+    });
+    setWork(newWork);
   };
 
   return (
@@ -33,7 +39,7 @@ function App() {
           <p id="title">Resume Remedy.</p>
         </div>
         <UserInfo updateInfo={updateInfo} userData={userInfo}/>
-        <UserHistory updateWork={updateWork} 
+        <UserHistory updateInfo={updateInfo} updateWork={updateWork}
         userWork={userWork} userInfo={userInfo}/>
       </div>
       <div id="resumeContainer">
