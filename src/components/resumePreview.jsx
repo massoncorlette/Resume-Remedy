@@ -1,5 +1,6 @@
 import squareadd from '../assets/squareadd.svg';
 import editpencil from '../assets/editPencil.svg';
+import backarrow from '../assets/backarrow.svg'
 import { useState } from 'react';
 
 export function UserInfo({ updateInfo,userData}) {
@@ -85,13 +86,13 @@ export function UserHistory({ updateInfo, updateWork, userWork, userInfo }) {
         </>
       )}
       {activeWorkPanelIndex === 1 && (
-        <UserWorkPanels onShow={() => setActiveWork(1)} isActive={true} index={0} userWork={userWork} updateWork={updateWork} />
+        <UserWorkPanels onShow={() => setActiveWork(1)} onBack={() => setActiveWork(0)} isActive={true} index={0} userWork={userWork} updateWork={updateWork} />
       )}
       {activeWorkPanelIndex === 2 && (
-        <UserWorkPanels onShow={() => setActiveWork(2)} isActive={true} index={1} userWork={userWork} updateWork={updateWork}/>
+        <UserWorkPanels onShow={() => setActiveWork(2)} onBack={() => setActiveWork(0)} isActive={true} index={1} userWork={userWork} updateWork={updateWork}/>
       )}
       {activeWorkPanelIndex === 3 && (
-        <UserWorkPanels onShow={() => setActiveWork(3)} isActive={true} index={2} userWork={userWork} updateWork={updateWork}/>
+        <UserWorkPanels onShow={() => setActiveWork(3)} onBack={() => setActiveWork(0)} isActive={true} index={2} userWork={userWork} updateWork={updateWork}/>
       )}
       </div></UserHistoryPanels>
 
@@ -103,7 +104,7 @@ export function UserHistory({ updateInfo, updateWork, userWork, userInfo }) {
   );
 };
 
-function UserWorkPanels({isActive,onShow,index,userWork,updateWork}) {
+function UserWorkPanels({isActive,onShow,onBack,index,userWork,updateWork}) {
 
 
   return (
@@ -130,8 +131,18 @@ function UserWorkPanels({isActive,onShow,index,userWork,updateWork}) {
               </div>
             </div>
           </div>
-          <div className='activeWorkPanelSubmitContianer'>
-              <button></button>
+          <div className='activeWorkPanelSubmitContainer'>
+            <div className='controlsButtons'>
+              <button onClick={onBack} id="backbtn">
+                <img src={backarrow} className="userIcons" ></img>
+              </button>
+            </div>
+            <div className='addworkBtnContainer'>
+              <button className='addworkBtn'>
+                Add Work +
+              </button>
+            </div>
+              
           </div>
         </div>
       ) : (

@@ -95,6 +95,8 @@ body {
 
 .nonActivePanel:hover {
   scale: 1.1;
+  border-bottom: none ;
+  border-top:none;
 }
 
 .experienceInputContainer {
@@ -136,6 +138,11 @@ body {
   flex-direction: column;
 }
 
+.activeWorkPanelSubmitContainer {
+  grid-column: 6/11;
+  grid-row: 1/11;
+}
+
 .activeworkPanelTop, .activeworkPanelBottom {
   width: 100%;
   flex: 1;
@@ -151,8 +158,12 @@ body {
   height: 100%;
 }
 
-.workInput , .jobSummary{
-  width: 50%;
+.workInput {
+  width: 80%;
+}
+
+.jobSummary {
+  width: 100%;
 }
 
 .userIcons {
@@ -167,16 +178,28 @@ body {
   margin-top: 10%;
 }
 
+.addworkBtnContainer {
+ width: 100%;
+ height: 100%;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+.addworkBtn {
+  height: 50%;
+  font-weight: 800;
+  background-color: var(--highlight-accent);
+}
+
+.addworkBtn:hover {
+  background-color: var(--highlight-accent-alt);
+}
 
 .activePanel {
   flex-grow: 4;
   display: flex;
 }
 
-.nonActivePanel {
-  flex: 1;
-
-}
 
 .nonActivePanel {
   flex: 1;
@@ -185,6 +208,7 @@ body {
   justify-content:center;
   align-items: center;
   gap: 2%;
+  border-bottom: 1px solid var(--text-color) ;
 }
 
 .nonactiveworkPanel {
@@ -192,14 +216,12 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  border-bottom: 1px solid var(--text-color) ;
 }
-
 
 #testHistory {
   border-bottom: solid black 1px ;
 }
-
-
 
 .userHistoryHeaders {
   font-size: 1.2rem;
@@ -225,6 +247,19 @@ body {
 #controlsContainer {
   width: 100%;
   height: 5%;
+}
+
+#backbtn {
+  background-color: rgb(201, 201, 201);
+}
+
+#backbtn:hover {
+  background-color: rgb(151, 151, 151);
+}
+
+.controlsButtons {
+  display: flex;
+  justify-content: flex-end;
 }
 
 #resumePreviewContainer {

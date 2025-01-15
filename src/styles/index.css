@@ -1,4 +1,4 @@
-* {border: solid rgba(255, 0, 0, 0.178) 1px;}
+* {border: solid rgba(255, 0, 0, 0) 1px;}
 
 /* global styles here */
 
@@ -11,7 +11,7 @@ body {
 
 :root {
   --primary-color: rgb(201, 201, 201);
-  --container-color: rgba(255, 251, 251, 0.966);
+  --container-color: rgba(255, 250, 250, 0.966);
   --accent-color: rgb(0, 153, 255); /*printer button */
   --background-color: #f8f9fa; 
   --field-background: #e9ecef; 
@@ -21,8 +21,8 @@ body {
   
   --primary-accent: #005f73; 
   --secondary-accent: #ffb703; 
-  --highlight-accent: #ef476f; /*printer button */
-  
+  --highlight-accent: rgb(239, 71, 111); /*printer button */
+  --highlight-accent-alt: rgb(206, 59, 93);
   --border-color: #dee2e6; 
 
   --button-color: #06d6a0; 
