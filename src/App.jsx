@@ -44,7 +44,7 @@ function App() {
       </div>
       <div id="resumeContainer">
         <div id="controlsContainer"></div>
-        <ResumePreview userData={userInfo}/>
+        <ResumePreview userInfo={userInfo} userWork={userWork}/>
       </div>
     </>
   )

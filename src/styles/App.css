@@ -93,12 +93,6 @@ body {
   animation-name: font-ease;
 }
 
-.nonActivePanel:hover {
-  scale: 1.1;
-  border-bottom: none ;
-  border-top:none;
-}
-
 .experienceInputContainer {
   flex: 1;
   display: flex;
@@ -132,14 +126,14 @@ body {
 }
 
 .activeWorkPanelInformationContainer {
-  grid-column: 1/6;
-  grid-row: 1/11;
+  grid-column: 3/8;
+  height: 100%;
   display: flex;
   flex-direction: column;
 }
 
 .activeWorkPanelSubmitContainer {
-  grid-column: 6/11;
+  grid-column: 8/11;
   grid-row: 1/11;
 }
 
@@ -156,6 +150,33 @@ body {
 .jobSummaryContainer {
   width: 100%;
   height: 100%;
+}
+
+.jobHistoryContainer {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.historyPanelContainer {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(10,10%);
+  grid-template-rows: repeat(10,10%) ;
+}
+
+.workHistoryTopContainer {
+  grid-row: 1/4;
+  grid-column: 2/10;
+  display: flex;
+  justify-content: space-between;
+}
+
+.workHistoryBottomContainer {
+  grid-row: 4/11;
+  grid-column: 2/10;
+
 }
 
 .workInput {
@@ -183,7 +204,6 @@ body {
  height: 100%;
  display: flex;
  justify-content: center;
- align-items: center;
 }
 .addworkBtn {
   height: 50%;
@@ -198,6 +218,8 @@ body {
 .activePanel {
   flex-grow: 4;
   display: flex;
+  border-top: solid 1px var(--border-color);
+  border-bottom: solid 1px var(--border-color);
 }
 
 
@@ -208,7 +230,6 @@ body {
   justify-content:center;
   align-items: center;
   gap: 2%;
-  border-bottom: 1px solid var(--text-color) ;
 }
 
 .nonactiveworkPanel {
@@ -216,7 +237,7 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  border-bottom: 1px solid var(--text-color) ;
+  border-bottom: 1px solid var(--border-color) ;
 }
 
 #testHistory {

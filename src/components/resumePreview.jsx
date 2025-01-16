@@ -137,11 +137,6 @@ function UserWorkPanels({isActive,onShow,onBack,index,userWork,updateWork}) {
                 <img src={backarrow} className="userIcons" ></img>
               </button>
             </div>
-            <div className='addworkBtnContainer'>
-              <button className='addworkBtn'>
-                Add Work +
-              </button>
-            </div>
               
           </div>
         </div>
@@ -184,47 +179,64 @@ function UserHistoryPanels({ header,isActive, onShow, children}) {
 
 //add btn element will pass true to onAdd
 //this component will be nested in ResumePreview
-function WorkHistoryPanels({onAdd,userWork}) {
+function WorkHistoryPanels({userWork,index}) {
 
 
   return (
     <>
-      {onAdd ? (
-        <div className='jobHistoryContainers'>
-          <div className='jobCompany'>
-            { userWork.company }
+      <div className='historyPanelContainer'>
+        <div className='workHistoryTopContainer'>
+          <div>
+            <div className='workHistoryTopRight'>
+              <div>
+                {userWork[index].company}
+              </div>
+                
+              <div>
+
+              </div>
+            </div>
+            <div className='workHistoryTopLeft'>
+
+            </div>
+          </div>
+          <div>
+
           </div>
         </div>
-      ) : (
-        <></>
-      )}
+        <div className='workHistoryBottomContainer'>
+
+        </div>
+      </div>
     </>
   );
 };
 
-export function ResumePreview({userData}) {
+export function ResumePreview({userInfo, userWork}) {
 
 
   return (
     <div id="resumePreviewContainer">
       <div id="resumeMarginContainer">
         <div id="resumeHeaderContainer">
-          <div id="headerName"> {userData.firstName} {userData.lastName} </div>
-          <div id="titleName" >{userData.title}</div>
+          <div id="headerName"> {userInfo.firstName} {userInfo.lastName} </div>
+          <div id="titleName" >{userInfo.title}</div>
           <div id="contactInfo">
-            <div id="phoneNumber"> {userData.phoneNumber} </div>
-            <div id="email"> {userData.email} </div>
-            <div id="location"> {userData.location} </div>
+            <div id="phoneNumber"> {userInfo.phoneNumber} </div>
+            <div id="email"> {userInfo.email} </div>
+            <div id="location"> {userInfo.location} </div>
           </div>
         </div>
         <div id="resumeSummaryContainer">
            <div className='resumeHeaders'>Personal Summary</div>
-           <div id="resumeSummary">{userData.summary}</div>
+           <div id="resumeSummary">{userInfo.summary}</div>
         </div>
         <div id="resumeWorkContainer">
           <div className='resumeHeaders'>Work Experience</div>
-          <div>
-
+          <div className='jobHistoryContainer'>
+            <WorkHistoryPanels userWork={userWork} index={0} />
+            <WorkHistoryPanels userWork={userWork} index={1} />
+            <WorkHistoryPanels userWork={userWork} index={2} />
           </div>
         </div>
         <div id="resumeEducationContainer">
