@@ -170,12 +170,22 @@ body {
   grid-row: 1/4;
   grid-column: 2/10;
   display: flex;
-  justify-content: space-between;
+}
+
+.workHistoryTopRight {
+  flex: 1;
+  justify-content: flex-start;
+}
+
+.workHistoryTopLeft {
+  flex: 1;
+  justify-content: flex-end;
 }
 
 .workHistoryBottomContainer {
   grid-row: 4/11;
   grid-column: 2/10;
+  margin: 1%;
 
 }
 
@@ -185,6 +195,10 @@ body {
 
 .jobSummary {
   width: 100%;
+}
+
+#companyTxt {
+  font-weight: 600;
 }
 
 .userIcons {
@@ -235,9 +249,13 @@ body {
 .nonactiveworkPanel {
   flex: 1;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   border-bottom: 1px solid var(--border-color) ;
+}
+
+.workInfoPreviewTxt {
+  width: 25%;
 }
 
 #testHistory {
@@ -284,7 +302,8 @@ body {
 }
 
 #resumePreviewContainer {
-  width: 37.1875rem;
+  min-width: 37.1875rem;
+  max-width: 37.1875rem;
   height: 52.625rem;  
   border: solid black 1px;
   display: flex;

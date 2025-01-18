@@ -16,9 +16,9 @@ function App() {
   };
 
   const [userWork, setWork] = useState([
-    {set:true, company:"Google", job:"CEO", startdate:"August 15, 1997", enddate: "September 12, 2012"},
-    {set:true, company:"AppleBees", job:"Cook", startdate:"August 15, 1997", enddate: "September 12, 2012"},
-    {set:true, company:"Facebook", job:"UI Designer", startdate:"August 15, 1997", enddate: "September 12, 2012"}
+    {set:true, company:"Google", job:"CEO", startdate:"August 15, 1997", enddate: "September 12, 2012", worksummary: "Job Experience Here" },
+    {set:true, company:"AppleBees", job:"Cook", startdate:"August 15, 1997", enddate: "September 12, 2012", worksummary: "Job Experience Here"},
+    {set:true, company:"Facebook", job:"UI Designer", startdate:"August 15, 1997", enddate: "September 12, 2012", worksummary: "Job Experience Here"}
   ]);
 
   //handler for user history

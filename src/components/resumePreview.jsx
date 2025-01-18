@@ -81,8 +81,8 @@ export function UserHistory({ updateInfo, updateWork, userWork, userInfo }) {
       {activeWorkPanelIndex === 0 && (
         <>
          <UserWorkPanels onShow={() => setActiveWork(1)} isActive={false} index={0} userWork={userWork}/>
-         <UserWorkPanels onShow={() => setActiveWork(2)} isActive={false} />
-         <UserWorkPanels onShow={() => setActiveWork(2)} isActive={false} />
+         <UserWorkPanels onShow={() => setActiveWork(2)} isActive={false} index={1} userWork={userWork}/>
+         <UserWorkPanels onShow={() => setActiveWork(2)} isActive={false} index={2} userWork={userWork}/>
         </>
       )}
       {activeWorkPanelIndex === 1 && (
@@ -119,15 +119,18 @@ function UserWorkPanels({isActive,onShow,onBack,index,userWork,updateWork}) {
                 className='workInput' value={userWork[index].company}></input>
               </div>
               <div id="jobTitle">
-                <input className='workInput'></input>
+                <input onChange={(event) => {updateWork(index,event.target.value,"job")}}
+                className='workInput' value={userWork[index].job}></input>
               </div>
               <div id="jobDate">
-                <input className='workInput'></input>
+                <input onChange={(event) => {updateWork(index,event.target.value,"startdate")}}
+                className='workInput' value={userWork[index].startdate}></input>
               </div>           
             </div>
             <div className='activeworkPanelBottom'>
               <div className='jobSummaryContainer'>
-                <textarea className='jobSummary'></textarea>
+                <textarea onChange={(event) => {updateWork(index,event.target.value,"worksummary")}}
+                className='jobSummary'></textarea>
               </div>
             </div>
           </div>
@@ -142,10 +145,10 @@ function UserWorkPanels({isActive,onShow,onBack,index,userWork,updateWork}) {
         </div>
       ) : (
         <div className="nonactiveworkPanel">
-          <div className='workInfoPreviewContainer'>
-            Put Company Text
+          <div className='workInfoPreviewTxt'>
+            {userWork[index].job}
           </div>
-          <div>
+          <div id='pencilBtn'>
             <button onClick={onShow}>
               <img src={editpencil} className='editIcons' />
             </button>
@@ -186,26 +189,23 @@ function WorkHistoryPanels({userWork,index}) {
     <>
       <div className='historyPanelContainer'>
         <div className='workHistoryTopContainer'>
-          <div>
-            <div className='workHistoryTopRight'>
-              <div>
-                {userWork[index].company}
-              </div>
-                
-              <div>
-
-              </div>
+          <div className='workHistoryTopRight'>
+            <div id='companyTxt'>
+              {userWork[index].company}
             </div>
-            <div className='workHistoryTopLeft'>
-
-            </div>
+              {userWork[index].job}
+            <div>
           </div>
-          <div>
+          </div>
+          <div className='workHistoryTopLeft'>
+            <div> {userWork[index].startdate} {" - "} {userWork[index].enddate}</div>
+          </div>
+        <div>
 
           </div>
         </div>
         <div className='workHistoryBottomContainer'>
-
+          {userWork[index].worksummary}
         </div>
       </div>
     </>
