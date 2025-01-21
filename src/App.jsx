@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './styles/App.css'
-import { UserInfo, ResumePreview, UserHistory } from './components/resumePreview';
+import { UserInfo, ResumePreview, UserHistory, UserSkills } from './components/resumePreview';
+import logo from './assets/check.png'
 
 function App() {
   const [userInfo, setUser] = useState({firstName: "Olivia", lastName: "Bennett", phoneNumber: "(702) 456-7890", email: "exampleemail@sbcglobal.net", location: "89 Birch Lane, Las Vegas, NV",
@@ -16,9 +17,30 @@ function App() {
   };
 
   const [userWork, setWork] = useState([
-    {set:true, company:"Google", job:"CEO", startdate:"August 15, 1997", enddate: "September 12, 2012", worksummary: "Job Experience Here" },
-    {set:true, company:"AppleBees", job:"Cook", startdate:"August 15, 1997", enddate: "September 12, 2012", worksummary: "Job Experience Here"},
-    {set:true, company:"Facebook", job:"UI Designer", startdate:"August 15, 1997", enddate: "September 12, 2012", worksummary: "Job Experience Here"}
+      {
+        set: true,
+        company: "Google",
+        job: "Chief Executive Officer",
+        startdate: "March 1, 2004",
+        enddate: "October 15, 2019",
+        worksummary: "Oversaw global operations and strategy, driving major product innovations, and managing a diverse team across various departments. Spearheaded initiatives that led to Google's expansion into new markets and technologies."
+      },
+      {
+        set: true,
+        company: "Applebee's",
+        job: "Kitchen Manager",
+        startdate: "January 10, 2016",
+        enddate: "July 30, 2021",
+        worksummary: "Managed kitchen staff, ensured adherence to safety and quality standards, and implemented seasonal menu updates. Coordinated with the front-of-house team to improve the overall dining experience and customer satisfaction."
+      },
+      {
+        set: true,
+        company: "Facebook",
+        job: "Lead UI Designer",
+        startdate: "July 5, 2010",
+        enddate: "December 12, 2016",
+        worksummary: "Led the design and implementation of user interfaces for Facebook's main app and its features. Worked closely with engineers and product managers to ensure a seamless user experience across both mobile and desktop platforms."
+      }
   ]);
 
   //handler for user history
@@ -32,19 +54,45 @@ function App() {
     setWork(newWork);
   };
 
+  const [userEducation, setEducation] = useState([
+    {major:"Computer Science",school:"Harvard University",location:"Massachusetts Hall, Cambridge, MA",graduationdate: "May 2016" },
+    {major:"Web Development",school:"Odin Project",location:"www.odinproject.com",graduationdate: "September 2022"}
+  ])
+
+
+  const updateEducation = (index, value, propType) => {
+    const newEducation = userEducation.map((education, i) => {
+      if (i === index) {
+        return { ...education, [propType]: value };
+      }
+      return education;
+    });
+    setEducation(newEducation);
+  };
+
+  const [userSkills, setSkills] = useState([
+    "LeaderShip", "Time Management", "Javascript", "React", "Deployment", 
+  ])
+
   return (
     <>
       <div id="editorContainer">
-        <div id="logoContainer">
+        <div id="logotxtContainer">
           <p id="title">Resume Remedy.</p>
+          <div id="logoContainer">
+            <img src={logo} id='logopng'></img>
+          </div>
         </div>
+
         <UserInfo updateInfo={updateInfo} userData={userInfo}/>
         <UserHistory updateInfo={updateInfo} updateWork={updateWork}
-        userWork={userWork} userInfo={userInfo}/>
+        userWork={userWork} userInfo={userInfo} userEducation={userEducation}
+        updateEducation={updateEducation}/>
+        <UserSkills userSkills={userSkills} setSkills={setSkills} />
       </div>
       <div id="resumeContainer">
         <div id="controlsContainer"></div>
-        <ResumePreview userInfo={userInfo} userWork={userWork}/>
+        <ResumePreview userInfo={userInfo} userWork={userWork} userEducation={userEducation}/>
       </div>
     </>
   )

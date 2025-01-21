@@ -1,4 +1,4 @@
-* {border: solid rgba(255, 0, 0, 0.055) 1px;}
+* {border: solid rgba(255, 0, 0, 0) 1px;}
 
 /* global styles here */
 
@@ -53,6 +53,17 @@ button {
   background-color: var(--button-color);
   border-radius: 60%;
 }
+
+#buttonalt {
+  margin-top: 1%;
+  background-color: var(--highlight-accent);
+  border-radius: 60%;
+}
+
+#buttonalt:hover {
+  background-color: var(--highlight-accent-alt);
+}
+
 
 button:hover {
   cursor: pointer;
