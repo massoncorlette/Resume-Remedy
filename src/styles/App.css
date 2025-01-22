@@ -1,6 +1,4 @@
-
 /* root style here for App() */
-
 
 #root {
   height: 140vh;
@@ -11,23 +9,21 @@
 body {
   height: 140vh;
   cursor: default;
-  background-color: var(--background-color) ;
+  background-color: var(--background-color);
   color: var(--text-color);
 }
 
-
-
 /* Montserrat for headers */
 #title {
-  font-family:"Montserrat", serif; ;
+  font-family: "Montserrat", serif;
   color: var(--heading-color);
 }
 
 #editorContainer {
   flex: 1;
   display: grid;
-  grid-template-columns: repeat(10,10%);
-  grid-template-rows: repeat(20,5%);
+  grid-template-columns: repeat(10, 10%);
+  grid-template-rows: repeat(20, 5%);
 }
 
 #logotxtContainer {
@@ -47,7 +43,8 @@ body {
   height: 50%;
 }
 
-#userInfoContainer, #userHistoryContainer {
+#userInfoContainer,
+#userHistoryContainer {
   border: solid 1px;
   padding: 3rem;
   background-color: var(--container-color);
@@ -63,7 +60,7 @@ body {
 }
 
 #userHistoryContainer {
-  display:flex;
+  display: flex;
   flex-direction: column;
   grid-column: 2/10;
   grid-row: 13/19;
@@ -113,7 +110,6 @@ body {
   50% {
     transform: scale(1.1);
   }
-
 }
 
 @keyframes font-ease {
@@ -125,7 +121,6 @@ body {
     opacity: 100%;
   }
 }
-
 
 .activePanel {
   animation-duration: 1s;
@@ -139,37 +134,40 @@ body {
   flex-wrap: wrap;
 }
 
-.experienceInput , .jobSummary {
+.experienceInput,
+.jobSummary {
   flex: 1;
   width: 100%;
-  resize: none; 
-  overflow-wrap: break-word; 
-  text-align: left; 
-  vertical-align: top; 
-  line-height: 1.5; 
+  resize: none;
+  overflow-wrap: break-word;
+  text-align: left;
+  vertical-align: top;
+  line-height: 1.5;
 }
 
 .experienceInput {
   font-size: larger;
 }
 
-
-#userWorkContainer, #userEducationContainer {
+#userWorkContainer,
+#userEducationContainer {
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
 }
 
-.activeworkPanel, .activeeducationPanel {
+.activeworkPanel,
+.activeeducationPanel {
   display: grid;
-  grid-template-columns: repeat(10,10%);
-  grid-template-rows: repeat(10,10%);
+  grid-template-columns: repeat(10, 10%);
+  grid-template-rows: repeat(10, 10%);
   width: 100%;
   height: 100%;
 }
 
-.activeWorkPanelInformationContainer, .activeeducationPanelTop {
+.activeWorkPanelInformationContainer,
+.activeeducationPanelTop {
   grid-column: 3/8;
   grid-row: 1/11;
   height: 100%;
@@ -177,14 +175,15 @@ body {
   flex-direction: column;
 }
 
-
-
-.activeWorkPanelSubmitContainer, .activeEducationPanelSubmitContainer {
+.activeWorkPanelSubmitContainer,
+.activeEducationPanelSubmitContainer {
   grid-column: 8/11;
   grid-row: 1/11;
 }
 
-.activeworkPanelTop, .activeworkPanelBottom, .activeeducationPanelTop {
+.activeworkPanelTop,
+.activeworkPanelBottom,
+.activeeducationPanelTop {
   width: 100%;
   flex: 1;
   display: flex;
@@ -192,7 +191,7 @@ body {
   flex-direction: column;
 }
 
-.activeworkPanelTop div{
+.activeworkPanelTop div {
   display: flex;
   width: 100%;
 }
@@ -203,9 +202,8 @@ body {
   margin-top: 1rem;
 }
 
-
-
-.jobHistoryContainer, #educationHistoryContainer {
+.jobHistoryContainer,
+#educationHistoryContainer {
   height: 100%;
   width: 100%;
   display: flex;
@@ -215,8 +213,8 @@ body {
 .historyPanelContainer {
   flex: 1;
   display: grid;
-  grid-template-columns: repeat(10,10%);
-  grid-template-rows: repeat(10,10%) ;
+  grid-template-columns: repeat(10, 10%);
+  grid-template-rows: repeat(10, 10%);
 }
 
 .educationPanelContainer {
@@ -226,7 +224,8 @@ body {
   align-items: center;
 }
 
-.schoolContainer, .locationContainer {
+.schoolContainer,
+.locationContainer {
   flex: 1;
   display: flex;
   gap: 5%;
@@ -236,7 +235,8 @@ body {
   justify-content: flex-end;
 }
 
-.schoolmajor, .locationdate {
+.schoolmajor,
+.locationdate {
   flex: 1;
   display: flex;
   justify-content: flex-start;
@@ -271,7 +271,8 @@ body {
   font-size: 0.7rem;
 }
 
-.workInput, .educationInput {
+.workInput,
+.educationInput {
   width: 100%;
 }
 
@@ -297,10 +298,10 @@ body {
 }
 
 .addworkBtnContainer {
- width: 100%;
- height: 100%;
- display: flex;
- justify-content: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
 }
 .addworkBtn {
   height: 50%;
@@ -319,22 +320,22 @@ body {
   border-bottom: solid 1px var(--border-color);
 }
 
-
 .nonActivePanel {
   flex: 1;
   width: 100%;
   display: flex;
-  justify-content:center;
+  justify-content: center;
   align-items: center;
   gap: 2%;
 }
 
-.nonactiveworkPanel, .nonactiveeducationPanel {
+.nonactiveworkPanel,
+.nonactiveeducationPanel {
   flex: 1;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  border-bottom: 1px solid var(--border-color) ;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .workInfoPreviewTxt {
@@ -342,15 +343,13 @@ body {
 }
 
 #testHistory {
-  border-bottom: solid black 1px ;
+  border-bottom: solid black 1px;
 }
 
 .userHistoryHeaders {
   font-size: 1.2rem;
   justify-content: center;
-
 }
-
 
 .infoInput {
   flex: 1;
@@ -387,7 +386,7 @@ body {
 #resumePreviewContainer {
   min-width: 37.1875rem;
   max-width: 37.1875rem;
-  height: 52.625rem;  
+  height: 52.625rem;
   border: solid black 1px;
   display: flex;
   font-family: "Roboto Slab", serif;
@@ -401,15 +400,17 @@ body {
   flex: 1;
   margin: 3%;
   display: grid;
-  grid-template-columns: repeat(5,20%);
-  grid-template-rows: repeat(20,5%);
-
+  grid-template-columns: repeat(5, 20%);
+  grid-template-rows: repeat(20, 5%);
 }
 
-#resumeHeaderContainer, #resumeSummaryContainer, #resumeWorkContainer,
-#resumeEducationContainer, #resumeSkillsContainer {
+#resumeHeaderContainer,
+#resumeSummaryContainer,
+#resumeWorkContainer,
+#resumeEducationContainer,
+#resumeSkillsContainer {
   grid-column: 1/6;
-  display:flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
 }
@@ -433,11 +434,9 @@ body {
   margin-bottom: 1%;
 }
 
-
-
 #headerName {
   font-size: 1.75rem;
-  font-family: "Roboto", serif;;
+  font-family: "Roboto", serif;
 }
 
 #titleName {
@@ -477,14 +476,11 @@ body {
   grid-row: 19/21;
 }
 
-
 /* minimize */
 @media (max-width: 1300px) {
   #resumePreviewContainer {
     width: 100%;
-  };
-
-
+  }
 }
 
 /* tablet mobile */
@@ -503,11 +499,8 @@ body {
     margin-top: 20%;
     margin-right: 20%;
   }
-  
+
   #logopng {
     height: 55%;
   }
 }
-
-
-
