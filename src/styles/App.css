@@ -477,13 +477,17 @@ body {
 }
 
 /* minimize */
-@media (max-width: 1300px) {
+@media (max-width: 1200px) {
   #resumePreviewContainer {
     width: 100%;
   }
+
+  .userHistoryHeaders {
+    font-size: 1rem;
+  }
 }
 
-/* tablet mobile */
+/* tablet  */
 @media (max-width: 1000px) {
   #root {
     flex-direction: column;
@@ -504,3 +508,36 @@ body {
     height: 55%;
   }
 }
+
+
+/* mobile */
+@media (max-width: 500px) {
+
+  #userHistoryContainer {
+    font-size: 0.7rem;
+  }
+  .userHistoryHeaders {
+    font-size: 1rem;
+  }
+
+  #resumeMarginContainer {
+      margin: 10%;
+      margin-bottom: 0%;
+      margin-top: 2%;
+      font-size: 0.8em;
+  }
+
+  .activeWorkPanelInformationContainer {
+    grid-column: 1/8;
+  }
+
+  #resumePreviewContainer {
+    width: 90%; 
+    max-width: 37.1875rem; 
+    height: auto; 
+    aspect-ratio: 37.1875 / 52.625; 
+  }
+
+
+}
+
