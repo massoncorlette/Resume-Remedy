@@ -20,15 +20,27 @@ body {
   --heading-color: #2d2d2d; 
   
   --primary-accent: #005f73; 
+  --primary-accent-alt: #00748b; 
   --secondary-accent: #ffb703; 
   --highlight-accent: rgb(239, 71, 111); /*printer button */
-  --highlight-accent-alt: rgb(206, 59, 93);
+  --highlight-accent-alt: rgb(255, 85, 125);
   --border-color: #dee2e6; 
 
   --button-color: #06d6a0; 
   --button-hover: #05c78c; 
 
 }
+
+
+@media print {
+  #root {
+    display: none;
+  }
+  #resumePreviewContainer {
+    display:contents;
+  }
+}
+
 
 
 input, .experienceInput , .jobSummary{
@@ -53,6 +65,8 @@ button {
   background-color: var(--button-color);
   border-radius: 60%;
 }
+
+
 
 #buttonalt {
   margin-top: 1%;

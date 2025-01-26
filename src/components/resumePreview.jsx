@@ -15,7 +15,7 @@ export function UserInfo({ updateInfo,userData}) {
         value={userData.firstName}
         onChange={(event) => updateInfo(event.target.value, "firstName")}></input>
       </div>
-      <div id="lastName" className="infoInput" onChange={(event)=> userPropHandler(event.target.value, "firstName")}>
+      <div id="lastName" className="infoInput">
         <label htmlFor="lastName">Last Name</label>
         <input name="lastName"
         type="text"

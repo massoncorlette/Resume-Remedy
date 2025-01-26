@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './styles/App.css'
 import { UserInfo, ResumePreview, UserHistory, UserSkills } from './components/resumePreview';
 import logo from './assets/check.png'
+import html2pdf from "html2pdf.js";
 
 function App() {
   const [userInfo, setUser] = useState({firstName: "Olivia", lastName: "Bennett", phoneNumber: "(702) 456-7890", email: "exampleemail@sbcglobal.net", location: "89 Birch Lane, Las Vegas, NV",
@@ -55,7 +56,7 @@ function App() {
   };
 
   const [userEducation, setEducation] = useState([
-    {major:"Computer Science",school:"Harvard University",location:"Massachusetts Hall, Cambridge, MA",graduationdate: "May 2016" },
+    {major:"Computer Science",school:"Harvard University",location:"Massachusetts Hall, MA",graduationdate: "May 2016" },
     {major:"Web Development",school:"Odin Project",location:"www.odinproject.com",graduationdate: "September 2022"}
   ])
 
@@ -74,13 +75,39 @@ function App() {
     "LeaderShip", "Time Management", "Javascript", "React", "Deployment", 
   ])
 
+  function printResume() {
+    const element = document.getElementById('resumeMarginContainer');
+    const options = {
+      margin: 0, 
+      filename: 'myresumeremedy.pdf', 
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 1 }, 
+      jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+
+    html2pdf().set(options).from(element).save(); 
+  }
+
+  function pageReload() {
+    window.location.reload();
+  }
+
   return (
+
     <>
       <div id="editorContainer">
         <div id="logotxtContainer">
           <p id="title">Resume Remedy.</p>
           <div id="logoContainer">
             <img src={logo} id='logopng'></img>
+          </div>
+        </div>
+        <div id="controlsContainer">
+          <div id='controlsResetBtnContainer'>
+            <button id='resetBtn' onClick={pageReload} >Reset Resume</button>
+          </div>
+          <div id='controlsPrintBtnContainer'>
+            <button id='printBtn' onClick={printResume} >Save Resume</button>
           </div>
         </div>
 
@@ -91,11 +118,13 @@ function App() {
         <UserSkills userSkills={userSkills} setSkills={setSkills} />
       </div>
       <div id="resumeContainer">
-        <div id="controlsContainer"></div>
         <ResumePreview userInfo={userInfo} userWork={userWork} userEducation={userEducation}/>
       </div>
     </>
   )
+  
 };
+
+
 
 export default App
