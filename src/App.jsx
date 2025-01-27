@@ -22,24 +22,22 @@ function App() {
         set: true,
         company: "Google",
         job: "Chief Executive Officer",
-        startdate: "March 1, 2004",
-        enddate: "October 15, 2019",
+        date: "March 1, 2004 - October 15, 2019",
         worksummary: "Oversaw global operations and strategy, driving major product innovations, and managing a diverse team across various departments. Spearheaded initiatives that led to Google's expansion into new markets and technologies."
       },
       {
         set: true,
         company: "Applebee's",
         job: "Kitchen Manager",
-        startdate: "January 10, 2016",
-        enddate: "July 30, 2021",
+        date: "January 10, 2016 - November 24, 2018",
         worksummary: "Managed kitchen staff, ensured adherence to safety and quality standards, and implemented seasonal menu updates. Coordinated with the front-of-house team to improve the overall dining experience and customer satisfaction."
       },
       {
         set: true,
         company: "Facebook",
         job: "Lead UI Designer",
-        startdate: "July 5, 2010",
-        enddate: "December 12, 2016",
+        date: "July 5, 2010 - December 12, 2016",
+
         worksummary: "Led the design and implementation of user interfaces for Facebook's main app and its features. Worked closely with engineers and product managers to ensure a seamless user experience across both mobile and desktop platforms."
       }
   ]);
@@ -71,9 +69,17 @@ function App() {
     setEducation(newEducation);
   };
 
-  const [userSkills, setSkills] = useState([
-    "LeaderShip", "Time Management", "Javascript", "React", "Deployment", 
-  ])
+  const [userSkills, setSkills] = useState({
+    skills: "LeaderShip - Time Management - Javascript - React - Deployment", onShow:false
+})
+
+const updateSkills = (value, propType) => {
+
+  const changeSkills = {...userSkills, [propType]:value};
+
+  setSkills(changeSkills);
+};
+
 
   function printResume() {
     const element = document.getElementById('resumeMarginContainer');
@@ -115,10 +121,16 @@ function App() {
         <UserHistory updateInfo={updateInfo} updateWork={updateWork}
         userWork={userWork} userInfo={userInfo} userEducation={userEducation}
         updateEducation={updateEducation}/>
-        <UserSkills userSkills={userSkills} setSkills={setSkills} />
+        <div id='userSkillsContainer'>
+        <UserSkills
+          userSkills={userSkills}
+          updateSkills={updateSkills}
+          isActive={userSkills.onShow}
+        />
+        </div>
       </div>
       <div id="resumeContainer">
-        <ResumePreview userInfo={userInfo} userWork={userWork} userEducation={userEducation}/>
+        <ResumePreview userInfo={userInfo} userWork={userWork} userEducation={userEducation} userSkills={userSkills}/>
       </div>
     </>
   )

@@ -66,7 +66,7 @@ export function UserHistory({ updateInfo, updateWork, userWork, userInfo, userEd
 
   return (
     <div id="userHistoryContainer">
-      <UserHistoryPanels header="Professional Experience" 
+      <UserHistoryPanels header="Professional Summary" 
       isActive={activeHistoryPanelIndex === 1}
       onShow={() => setActiveHistory(1)} >
       <div className="experienceInputContainer">
@@ -120,28 +120,43 @@ export function UserHistory({ updateInfo, updateWork, userWork, userInfo, userEd
   );
 };
 
-
-export function UserSkills({userSkills,index, updateSkills,onShow}) {
+export function UserSkills({ userSkills, updateSkills, isActive, onShow }) {
+  console.log(userSkills);
 
   return (
-    <div id="userSkillsContainer">
-      <div id="userSkillsInner">
-        <div className='pencilBtn' id='skillBtnContainer'>
-          <div id='addSkill'>Add a skill</div>
-          <div>
-            <button onClick={onShow} id="buttonalt">
-              <img src={squareadd} className='editIcons' />
-            </button>
+    <>
+      {!isActive ? (
+        <div id="userSkillsInner">
+          <div className="pencilBtn" id="skillBtnContainer">
+            <div id="addSkill">Add Skills</div>
+            <div>
+              <button onClick={() => updateSkills(true, "onShow")} id="buttonalt">
+                <img src={squareadd} className="editIcons" alt="Add" />
+              </button>
+            </div>
           </div>
-        </div> 
-      </div>
-    </div>
-
-
-  )
-
-
+        </div>
+      ) : (
+        <div id="userSkillsInner">
+          <div id="skillsInputContainer">
+            <div id='skillInputDiv'>
+              <input
+                id="skillsInput" value={userSkills.skills}
+                onChange={(e) => updateSkills(e.target.value, "skills")} 
+                placeholder="Enter your skills" maxLength={90}
+              />
+            </div>
+            <div id='exitSkillContainer'>
+              <button onClick={() => updateSkills(false, "onShow")} id="exitSkill">X
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
+  );
 }
+
 
 function UserWorkPanels({isActive,onShow,onBack,index,userWork,updateWork}) {
 
@@ -162,8 +177,8 @@ function UserWorkPanels({isActive,onShow,onBack,index,userWork,updateWork}) {
                 className='workInput' value={userWork[index].job} placeholder='Job Title'></input>
               </div>
               <div id="jobDate">
-                <input onChange={(event) => {updateWork(index,event.target.value,"startdate")}}
-                className='workInput' value={userWork[index].startdate} placeholder='Start Date'></input>
+                <input onChange={(event) => {updateWork(index,event.target.value,"date")}}
+                className='workInput' value={userWork[index].date} placeholder='Date ex.(January 1, 2012 - December 31, 2013)'></input>
               </div>           
             </div>
             <div className='activeworkPanelBottom'>
@@ -207,20 +222,20 @@ function UserEducationPanels({isActive,onShow,onBack,index,userEducation,updateE
         <div className="activeeducationPanel">
             <div className='activeeducationPanelTop'>
               <div id="major">
-                <input onChange={(event) => {updateEducation(index,event.target.value,"company")}}
-                className='educationInput' value={userEducation[index].company} placeholder='Major/Certificate'></input>
+                <input value={userEducation[index].major} onChange={(event) => {updateEducation(index,event.target.value,"major")}}
+                className='educationInput' placeholder='Major/Certificate'></input>
               </div>
               <div id="school">
-                <input onChange={(event) => {updateEducation(index,event.target.value,"job")}}
-                className='educationInput' value={userEducation[index].job} placeholder='School/Course'></input>
+                <input value={userEducation[index].school} onChange={(event) => {updateEducation(index,event.target.value,"school")}}
+                className='educationInput'  placeholder='School/Course'></input>
               </div>
               <div id="location">
-                <input onChange={(event) => {updateE(index,event.target.value,"location")}}
-                className='educationInput' value={userEducation[index].startdate} placeholder='Location/Site'></input>
+                <input value={userEducation[index].location} onChange={(event) => {updateEducation(index,event.target.value,"location")}}
+                className='educationInput' placeholder='Location/Site'></input>
               </div>
               <div id="graduation">
-                <input onChange={(event) => {updateE(index,event.target.value,"graduationdate")}}
-                className='educationInput' value={userEducation[index].startdate} placeholder='Graduation Date/Completion Date'></input>
+                <input value={userEducation[index].graduationdate} onChange={(event) => {updateEducation(index,event.target.value,"graduationdate")}}
+                className='educationInput'  placeholder='Graduation Date/Completion Date'></input>
               </div>         
             </div>
             <div className='activeEducationPanelSubmitContainer'>
@@ -293,7 +308,7 @@ function WorkHistoryPanels({userWork,index}) {
           </div>
           </div>
           <div className='workHistoryTopLeft'>
-            <div> {userWork[index].startdate} {" - "} {userWork[index].enddate}</div>
+            <div> {userWork[index].date}</div>
           </div>
         <div>
 
@@ -307,7 +322,7 @@ function WorkHistoryPanels({userWork,index}) {
   );
 };
 
-export function ResumePreview({userInfo, userWork, userEducation}) {
+export function ResumePreview({userInfo, userWork, userEducation, userSkills}) {
 
 
   return (
@@ -379,6 +394,9 @@ export function ResumePreview({userInfo, userWork, userEducation}) {
 
         <div id="resumeSkillsContainer">
           <div className='resumeHeaders'>Skills</div>
+          <div id='skillsContainer'>
+            <div>{userSkills.skills}</div>
+          </div>
         </div>
       </div>
     </div>
