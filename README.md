@@ -1,5 +1,8 @@
 # React + Vite
 
+![Project Screenshot](./ResumeRemedyScreenshot.png)
+
+
 npm install html2pdf.js
 
 User can add 3 work experiences + 2 education references
