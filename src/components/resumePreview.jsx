@@ -84,7 +84,7 @@ export function UserHistory({ updateInfo, updateWork, userWork, userInfo, userEd
         <>
          <UserWorkPanels onShow={() => setActiveWork(1)} isActive={false} index={0} userWork={userWork}/>
          <UserWorkPanels onShow={() => setActiveWork(2)} isActive={false} index={1} userWork={userWork}/>
-         <UserWorkPanels onShow={() => setActiveWork(2)} isActive={false} index={2} userWork={userWork}/>
+         <UserWorkPanels onShow={() => setActiveWork(3)} isActive={false} index={2} userWork={userWork}/>
         </>
       )}
       {activeWorkPanelIndex === 1 && (
